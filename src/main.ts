@@ -54,7 +54,7 @@ box.addEventListener ('mousedown', function(event) {
 });
   
 box.addEventListener ('mousemove', function(event) {
-  if (isDragging = false) return;
+  if (!isDragging) return;
 
   posX = event.clientX - dragStartX;
   posY = event.clientY - dragStartY;
