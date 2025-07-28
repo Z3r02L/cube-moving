@@ -12,18 +12,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 const box = document.getElementById('box') as HTMLElement;
 
-let posX = 0;
-let posY = 0;
-let isDragging = false;
-let dragStartX = 0;
-let dragStartY = 0;
+let posX:number = 0;
+let posY:number = 0;
+let isDragging:boolean = false;
+let dragStartX:number = 0;
+let dragStartY:number = 0;
 
 function positionUpdate() {
   box.style.transform = `translate(${posX}px, ${posY}px)`;
 }
 
-document.addEventListener('keydown', function(event) {
-
+document.addEventListener('keydown', function(event: KeyboardEvent) {
   const step = 30;
 
   switch (event.key) {
@@ -46,14 +45,14 @@ document.addEventListener('keydown', function(event) {
   positionUpdate();
 });  
 
-box.addEventListener ('mousedown', function(event) {
+box.addEventListener ('mousedown', function(event: MouseEvent) {
   isDragging = true;
   dragStartX = event.clientX - posX; 
   dragStartY = event.clientY - posY;
 
 });
   
-box.addEventListener ('mousemove', function(event) {
+box.addEventListener ('mousemove', function(event: MouseEvent) {
   if (!isDragging) return;
 
   posX = event.clientX - dragStartX;
