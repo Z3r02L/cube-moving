@@ -25,6 +25,8 @@ function positionUpdate() {
 document.addEventListener('keydown', function(event: KeyboardEvent) {
   const step = 30;
 
+  box.classList.add('animation');
+
   switch (event.key) {
     case 'ArrowLeft':
       posX -= step;
@@ -46,6 +48,7 @@ document.addEventListener('keydown', function(event: KeyboardEvent) {
 });  
 
 box.addEventListener ('mousedown', function(event: MouseEvent) {
+  box.classList.remove('animation');
   isDragging = true;
   dragStartX = event.clientX - posX; 
   dragStartY = event.clientY - posY;
